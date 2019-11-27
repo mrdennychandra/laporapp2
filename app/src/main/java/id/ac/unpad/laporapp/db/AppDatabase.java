@@ -9,7 +9,7 @@ import androidx.room.TypeConverters;
 
 import id.ac.unpad.laporapp.model.Lapor;
 
-@Database(entities = {Lapor.class}, version = 1,exportSchema = false)
+@Database(entities = {Lapor.class}, version = 2,exportSchema = false)
 @TypeConverters({DateConverter.class})
 public abstract class AppDatabase extends RoomDatabase {
 

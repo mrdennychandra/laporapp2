@@ -1,6 +1,7 @@
 package id.ac.unpad.laporapp.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -15,6 +17,7 @@ import com.bumptech.glide.Glide;
 import java.text.SimpleDateFormat;
 import java.util.List;
 
+import id.ac.unpad.laporapp.InputActivity;
 import id.ac.unpad.laporapp.R;
 import id.ac.unpad.laporapp.model.Lapor;
 
@@ -47,7 +50,7 @@ public class LaporAdapter extends
     //2. mengisi id nya
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Lapor lapor = lapors.get(position);
+        final Lapor lapor = lapors.get(position);
         holder.txtPil.setText(lapor.pil);
         holder.txtKeterangan.setText(lapor.keterangan);
         holder.txtLokasi.setText(lapor.lokasi);
@@ -60,8 +63,17 @@ public class LaporAdapter extends
                     .into(holder.imgLapor);
         }
         if(lapor.sent == 1){
-            //
+            holder.txtSent.setText("terkirim");
         }
+        holder.card.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, InputActivity.class);
+                //membawa variabel yang berisi object lapor
+                intent.putExtra("lapor",lapor);
+                context.startActivity(intent);
+            }
+        });
     }
 
     //mengetahui jumlah datanya
@@ -73,8 +85,9 @@ public class LaporAdapter extends
     //mengambil setiap id dr layout
     class ViewHolder extends RecyclerView.ViewHolder{
         //deklarasi variabel
-        TextView txtPil,txtKeterangan,txtWaktu,txtLokasi;
+        TextView txtPil,txtKeterangan,txtWaktu,txtLokasi,txtSent;
         ImageView imgLapor;
+        CardView card;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             txtPil = itemView.findViewById(R.id.txt_pil);
@@ -82,6 +95,8 @@ public class LaporAdapter extends
             txtWaktu = itemView.findViewById(R.id.txt_waktu);
             txtLokasi = itemView.findViewById(R.id.txt_lokasi);
             imgLapor = itemView.findViewById(R.id.img_lapor);
+            card = itemView.findViewById(R.id.card);
+            txtSent = itemView.findViewById(R.id.txt_sent);
         }
     }
 }

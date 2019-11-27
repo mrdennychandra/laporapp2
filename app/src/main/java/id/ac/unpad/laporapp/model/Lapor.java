@@ -1,6 +1,7 @@
 package id.ac.unpad.laporapp.model;
 
 import androidx.annotation.NonNull;
+import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
@@ -20,4 +21,6 @@ public class Lapor implements Serializable {
     public String lokasi;
     public String pil;
     public int sent;//flag 1 = terkirim,0=belum
+    public double latitude;
+    public double longitude;
 }

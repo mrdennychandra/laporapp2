@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".InputActivity">
+
+    <LinearLayout
+        android:padding="6dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_gravity="center"
+            android:src="@mipmap/camera"
+            android:id="@+id/img_lapor"
+            android:layout_width="320dp"
+            android:layout_height="320dp"/>
+
+        <RadioGroup
+            android:paddingTop="8dp"
+            android:orientation="horizontal"
+            android:id="@+id/rb_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <RadioButton
+                android:checked="true"
+                android:text="Pileg"
+                android:id="@+id/rb_pileg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <RadioButton
+                android:text="Pilpres"
+                android:id="@+id/rb_pilpres"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </RadioGroup>
+
+        <EditText android:hint="Keterangan"
+            android:minLines="2"
+            android:inputType="textMultiLine"
+            android:id="@+id/txt_keterangan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <EditText android:hint="Lokasi"
+            android:id="@+id/txt_lokasi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <Button
+            android:backgroundTint="@color/bootstrap_primary"
+            android:text="Simpan"
+            android:id="@+id/btn_simpan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <Button
+            android:backgroundTint="@color/bootstrap_danger"
+            android:visibility="visible"
+            android:text="Hapus"
+            android:id="@+id/btn_hapus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <Button
+            android:backgroundTint="@color/bootstrap_success"
+            android:visibility="visible"
+            android:text="Kirim"
+            android:id="@+id/btn_kirim"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+</ScrollView>
